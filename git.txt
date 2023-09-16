@@ -1,0 +1,11 @@
+link conversacion: https://chat.openai.com/share/ff86d8a4-e2ca-4952-9548-bd52865516bc
+
+Actualizar repositorio local y aplicar merge
+- git pull origin
+
+
+Actualizar repositorio local sobre una nueva rama
+- git fetch origin
+
+Fusionar cambios del repositorio local y el remoto
+- git merge
