@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <style> /*Codigo CSS*/
+            @keyframes vibrarYCambiarTamaño {
+                0% {
+                    transform: scale(1) translateX(0);
+                }
+                25% {
+                    transform: scale(1.1) translateX(0);
+                }
+                50% {
+                    transform: scale(1) translateX(0);
+                }
+                75% {
+                    transform: scale(1.1) translateX(0);
+                }
+                100% {
+                    transform: scale(1) translateX(0);
+                }
+            }
+
+            .animar{
+                animation: vibrarYCambiarTamaño 5s ease-in-out infinite;
+            }
+
+            body {
+                overflow: hidden; /* Deshabilitar tanto el desplazamiento vertical como el horizontal */
+            }
+
+            img {
+                width: 90vw; /* Establece el ancho al 100% del ancho de la ventana */
+                height: auto; /* Mantiene la proporción original de la imagen */
+            }
+
+        </style>
+    </head>
+
+    <body class="animar">
+        <center>
+            
+            <img class="img" src="https://github.com/AlexHD220/XV-Evelyn/assets/142282445/4725d53d-847f-4172-9726-fb8053b46c2a">
+        </center>
+    </body>
+    
+</html>

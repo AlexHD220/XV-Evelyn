@@ -1,57 +1,49 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
-        
-        <style> /*Codigo CSS*/
-            @keyframes vibrarYCambiarTamaño {
-                0% {
-                    transform: scale(1) translateX(0);
-                }
-                25% {
-                    transform: scale(1.1) translateX(5px);
-                }
-                50% {
-                    transform: scale(1) translateX(0);
-                }
-                75% {
-                    transform: scale(1.1) translateX(-5px);
-                }
-                100% {
-                    transform: scale(1) translateX(0);
-                }
-            }
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margen Dorado</title>
+    <style>
+        /* Estilos para el div con margen dorado */
+        .div-con-margen {
+            width: 200px;
+            height: 100px;
+            background-color: #f0f0f0; /* Color de fondo del div */
+            border-top: 5px solid gold; /* Margen dorado arriba */
+            border-bottom: 5px solid gold; /* Margen dorado abajo */
+            text-align: center;
+            line-height: 100px; /* Centrar el contenido verticalmente */
+        }
+    </style>
+</head>
+<body>
+    <div class="fecha-container">
+        <div class="linea-dorada"></div> <!-- Línea dorada encima del texto -->
+        <div class="fecha-element">
+            <div>-------------</div>
+            <div>Sábado</div>
+            <div>-------------</div>
+        </div>
+        <div class="fecha-element">
+            <div>15</div>
+            <div>agosto</div>
+        </div>
+        <div class="fecha-element">
+            <div>-------------</div>
+            <div>a las 2 pm</div>
+            <div>-------------</div>
+        </div>
+    </div>
 
-            #titulo {
-                /*font-size: 24px;*/
-
-                animation: vibrarYCambiarTamaño 5s ease-in-out infinite;
-                
-                width: 80%; 
-                max-width: 100%; 
-                font-size: 10vw; 
-                font-weight: normal; 
-                font-family: 'Pacifico', cursive;
-                
-                margin-top: -10px; 
-                margin-bottom: -50px; 
-            }
-            
-            /* Deshabilitar la barra de desplazamiento tanto vertical como el horizontal*/
-            /*::-webkit-scrollbar {
-                display: none;
-            }*/
-
-            body {
-                overflow: hidden; /* Deshabilitar tanto el desplazamiento vertical como el horizontal */
-            }
-        </style>
-    </head>
-
-    <body>
-        <center><h1 id="titulo"><i>Brenda Valeria</i></h1></center>
-    </body>
+    <div class="div-con-margen">
+        Contenido del Div
+    </div>
+    <div>
+        Contenido del Div
+    </div>
+    <div class="div-con-margen">
+        Contenido del Div
+    </div>
+</body>
 </html>

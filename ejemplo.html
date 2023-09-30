@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+        
+        <style> /*Codigo CSS*/
+
+            .ajustar {
+                width: 80%; /*tamaño del contenedor*/
+                max-width: 100%; 
+                font-size: 5vw; 
+                font-weight: normal; 
+            }
+
+            .ajustarNumero{
+                width: 80%; /*tamaño del contenedor*/
+                max-width: 100%; 
+                font-size: 6vw;
+                font-weight: normal; 
+                padding-left: 5vw; 
+                padding-right: 5vw;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            body {
+                overflow: hidden; /* Deshabilitar tanto el desplazamiento vertical como el horizontal */
+            }
+
+            .fecha-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative; /* Añadir posición relativa para el contenedor principal */
+            }
+
+            /* Estilos para la línea dorada */
+            
+
+            .linea-dorada {
+                text-align: center;
+                color: black; /* Color del texto */
+                position: relative; /* Establece posición relativa para que los pseudo-elementos sean posicionados relativamente a este elemento */
+            }
+
+            /* Estilos para las líneas doradas arriba y abajo del texto */
+            .linea-dorada::before,
+            .linea-dorada::after {
+                content: ""; /* Contenido pseudo-elemento vacío */
+                display: block;
+                width: 130%; /* Ajusta la longitud de las líneas doradas según tus necesidades */
+                height: 0.3vw; /* Altura de las líneas doradas (ajusta según sea necesario) */
+                background-color: goldenrod; /* Color de las líneas doradas */
+                position: absolute; /* Posicionamiento absoluto en relación con el contenedor de texto */
+                left: -15%; /* Ajusta la posición para centrar las líneas doradas */
+            }
+
+            .linea-dorada::before {
+                top: -5px; /* Mover la línea de arriba hacia arriba */
+            }
+
+            .linea-dorada::after {
+                bottom: -5px; /* Mover la línea de abajo hacia abajo */
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <!--#ffffff80;-->
+
+        <div style="background: #741b1b80; border-radius: 15px;">
+            <p style="font-size: 30px;">7 de Octubre del 2023</p>
+            <div class="fecha-container">
+                <div class="linea-dorada">
+                    <div class="fecha-element">
+                        <b class="ajustar">Sábado</b>
+                    </div>
+                </div> 
+                <div>
+                    <div class="fecha-element">
+                        <h1 class="ajustarNumero" style="color: goldenrod;">25</h1>
+                    </div>
+                </div> 
+                <div class="linea-dorada">
+                    <div class="fecha-element">
+                        <b class="ajustar">Noviembre</b>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </body>
+</html>
+
+
+

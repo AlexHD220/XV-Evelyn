@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+        
+        <style> /*Codigo CSS*/
+            @keyframes vibrarYCambiarTamaño {
+                0% {
+                    transform: scale(1) translateX(0);
+                }
+                25% {
+                    transform: scale(1.1) translateX(5px);
+                }
+                50% {
+                    transform: scale(1) translateX(0);
+                }
+                75% {
+                    transform: scale(1.1) translateX(-5px);
+                }
+                100% {
+                    transform: scale(1) translateX(0);
+                }
+            }
+
+            #titulo {
+                /*font-size: 24px;*/
+
+                animation: vibrarYCambiarTamaño 5s ease-in-out infinite;
+                
+                width: 80%; 
+                max-width: 100%; 
+                font-size: 10vw; 
+                font-weight: normal; 
+                font-family: 'Pacifico', cursive;
+                
+                margin-top: -10px; 
+                margin-bottom: -50px; 
+            }
+            
+            /* Deshabilitar la barra de desplazamiento tanto vertical como el horizontal*/
+            /*::-webkit-scrollbar {
+                display: none;
+            }*/
+
+            body {
+                overflow: hidden; /* Deshabilitar tanto el desplazamiento vertical como el horizontal */
+            }
+        </style>
+    </head>
+
+    <body>
+        <center><h1 id="titulo"><i>Brenda Valeria</i></h1></center>
+    </body>
+</html>

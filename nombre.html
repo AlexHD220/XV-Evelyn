@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mogra&display=swap">
+
+        <style> /*Codigo CSS*/
+            @keyframes vibrarYCambiarTamaño {
+                0% {
+                    transform: scale(1) translateX(0);
+                }
+                25% {
+                    transform: scale(1.3) translateX(0);
+                }
+                50% {
+                    transform: scale(1) translateX(0);
+                }
+                75% {
+                    transform: scale(1.3) translateX(0);
+                }
+                100% {
+                    transform: scale(1) translateX(0);
+                }
+            }
+
+            #titulo {
+
+                animation: vibrarYCambiarTamaño 10s ease-in-out infinite;
+                
+                width: 80%; 
+                max-width: 100%; 
+                font-size: 10vw; 
+                font-weight: normal; 
+                font-family: 'Mogra';
+
+                padding: 20px;
+                
+                margin-top: -10px; 
+                margin-bottom: -50px; 
+
+                color: #BC913B;
+            }
+            
+            /* Deshabilitar la barra de desplazamiento tanto vertical como el horizontal*/
+            /*::-webkit-scrollbar {
+                display: none;
+            }*/
+
+            body {
+                overflow: hidden; /* Deshabilitar tanto el desplazamiento vertical como el horizontal */
+            }
+        </style>
+    </head>
+
+    <body>
+        <center><h1 id="titulo"><b>Evelyn Noemí</b></h1></center>
+    </body>
+</html>

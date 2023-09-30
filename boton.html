@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            /*border: 2px solid #A39663; /* Bordes de color café */
+            border-radius: 5px; /* Bordes redondeados */
+        }
+
+        .dropdown-content button {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .dropdown-content button:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .formaBoton1{
+            /*width: 260px; /* Ajusta el ancho según tus preferencias */
+            /*height: 150px; /* Ajusta la altura según tus preferencias */
+            background-color: #eaeadf; /* Color de fondo cremoso */
+            border: 2px solid #A39663; /* Bordes de color café */
+            border-radius: 5px; /* Bordes redondeados */
+            padding: 10px; /* Espacio interior */
+            /*box-shadow: 5px 5px 10px #888888; /* Sombreado externo */
+            color: #A39663; /* Cambia Color Aqui */
+        }
+        
+        .formaBoton1:hover {
+            background-color: #dedeb7;
+            cursor: pointer;
+        }
+
+        .completa {
+            width: 80vw; /* El 100vw hace que el ancho sea igual al ancho de la ventana */
+            /*height: 50vh; /* El 100vh hace que la altura sea igual a la altura de la ventana */
+
+            text-align: center;
+
+        }
+
+
+    </style>
+</head>
+<body align="center">
+
+<div class="dropdown">
+
+    <div class="formaBoton1 completa">
+        <b style="font-size: 20px;">Agendar evento al calendario</b>
+    </div>
+
+    <div style="padding-top: 2px;"></div>
+
+    <div class="dropdown-content">
+        <button onclick="addToGoogleCalendar()"><center style="font-size: 20px;">Google Calendar</center></button>
+        <button onclick="addToAppleCalendar()"><center style="font-size: 20px;">Calendario de Apple</center></button>
+    </div>
+</div>
+
+<script>
+    function addToGoogleCalendar() {
+        // Abre el enlace completamente nuevo en una nueva pestaña
+        window.open("https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NzA3bHQzN2MydjRicDN2bjY0cTFpNmY1Y3QgZXZlbHluLmZpZXN0YTE1QG0&tmsrc=evelyn.fiesta15%40gmail.com", "_blank");
+    }
+
+
+    function addToAppleCalendar() {
+        // Abre el enlace completamente nuevo en una nueva pestaña
+        window.open("https://drive.google.com/uc?export=download&id=16LyurGZujK_Q5ZjaVB_xY4v-OkkjgH_K", "_blank");
+    }
+
+</script>
+
+</body>
+</html>

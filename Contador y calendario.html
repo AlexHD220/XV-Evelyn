@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+
+<style type="text/css">
+body {
+    overflow:hidden;
+    background: #741b1b80; /*Quitar*/
+}
+
+
+</style>
+
+<style>
+
+td {border-style: solid;
+    border-color: #cccccc;
+ border-width: 0px;
+
+
+color: #000000;  /* Cambia Color Aqui */
+
+padding: 0px;
+font-size: 30px;
+font-family: 'Pacifico', cursive;
+text-align: center;}
+
+th {
+ border-width: 0px;
+
+
+color: #BC913B; /* Cambia Color Aqui */
+
+text-align: center;
+padding: 0px;
+font-size: 15px;
+font-family: 'Pacifico', cursive;}
+ 
+</style>
+
+<style>
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        width: 100%;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        /*border: 2px solid #A39663; /* Bordes de color café */
+        border-radius: 5px; /* Bordes redondeados */
+    }
+
+    .dropdown-content button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+        text-decoration: none;
+        font-size: 16px;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .dropdown-content button:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .formaBoton1{
+        /*width: 260px; /* Ajusta el ancho según tus preferencias */
+        /*height: 150px; /* Ajusta la altura según tus preferencias */
+        background-color: #eaeadf; /* Color de fondo cremoso */
+        border: 2px solid #A39663; /* Bordes de color café */
+        border-radius: 5px; /* Bordes redondeados */
+        padding: 10px; /* Espacio interior */
+        /*box-shadow: 5px 5px 10px #888888; /* Sombreado externo */
+        color: #A39663; /* Cambia Color Aqui */
+    }
+    
+    .formaBoton1:hover {
+        background-color: #dedeb7;
+        cursor: pointer;
+    }
+
+    .completa {
+        width: 80vw; /* El 100vw hace que el ancho sea igual al ancho de la ventana */
+        /*height: 50vh; /* El 100vh hace que la altura sea igual a la altura de la ventana */
+
+        text-align: center;
+
+    }
+
+</style>
+
+
+<body align="center">
+
+    <!-- Contador regresivo CÓDIGO PRINCIPAL -->
+    <section>
+        <table align="center" width="90%" style="background: #ffffffbe; border-radius: 20px; padding-bottom: 10px;">
+            <tr>
+            <td><span id="weeks"></span></td>
+            <td><span id="days"></span></td>
+            <td><span id="hours"></span></td>
+            <td><span id="minutes"></span></td>
+            <div style="visibility: hidden"><span id="seconds"></div>
+            </tr>
+            <tr >
+            <th>Semanas</th>
+            <th>Días</th>
+            <th>Horas</th>
+            <th>Minutos</th>
+            </tr>
+        </table>
+    </section> 
+    <!-- Fin contador regresivo -->
+    <br><br>
+
+    <div class="dropdown">
+
+        <div class="formaBoton1 completa">
+            <b style="font-size: 20px;">Agendar evento al calendario</b>
+        </div>
+
+        <div style="padding-top: 2px;"></div>
+
+        <div class="dropdown-content">
+            <button onclick="addToGoogleCalendar()"><center style="font-size: 20px;">Google Calendar</center></button>
+            <button onclick="addToAppleCalendar()"><center style="font-size: 20px;">Calendario de Apple</center></button>
+        </div>
+    </div>
+    
+    <script>
+        function addToGoogleCalendar() {
+            // Abre el enlace completamente nuevo en una nueva pestaña
+            window.open("https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NzA3bHQzN2MydjRicDN2bjY0cTFpNmY1Y3QgZXZlbHluLmZpZXN0YTE1QG0&tmsrc=evelyn.fiesta15%40gmail.com", "_blank");
+        }
+    
+    
+        function addToAppleCalendar() {
+            // Abre el enlace completamente nuevo en una nueva pestaña
+            window.open("https://drive.google.com/uc?export=download&id=16LyurGZujK_Q5ZjaVB_xY4v-OkkjgH_K", "_blank");
+        }
+    
+    </script>
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => { 
+
+        // Cambiar la fecha del evento aquí // 
+        //=== Mes - Dia - Año ===//
+        const DATE_TARGET = new Date('11/25/2023 06:00 PM');
+
+
+        // DOM for render
+        const SPAN_WEEKS = document.querySelector('span#weeks');
+        const SPAN_DAYS = document.querySelector('span#days');
+        const SPAN_HOURS = document.querySelector('span#hours');
+        const SPAN_MINUTES = document.querySelector('span#minutes');
+        const SPAN_SECONDS = document.querySelector('span#seconds');
+
+        // Milliseconds for the calculations
+        const MILLISECONDS_OF_A_SECOND = 1000;
+        const MILLISECONDS_OF_A_MINUTE = MILLISECONDS_OF_A_SECOND * 60;
+        const MILLISECONDS_OF_A_HOUR = MILLISECONDS_OF_A_MINUTE * 60;
+        const MILLISECONDS_OF_A_DAY = MILLISECONDS_OF_A_HOUR * 24;
+        const MILLISECONDS_OF_A_WEEK = MILLISECONDS_OF_A_DAY * 7;
+
+        //===
+        // FUNCTIONS
+        //===
+
+        /**
+        * Method that updates the countdown and the sample
+        */
+        function updateCountdown() {
+            // Calcs
+            const NOW = new Date()
+            const DURATION = DATE_TARGET - NOW;
+            const REMANING_WEEKS = Math.floor(DURATION / MILLISECONDS_OF_A_WEEK);
+            const REMAINING_DAYS = Math.floor((DURATION % MILLISECONDS_OF_A_WEEK) / MILLISECONDS_OF_A_DAY);
+            const REMAINING_HOURS = Math.floor((DURATION % MILLISECONDS_OF_A_DAY) / MILLISECONDS_OF_A_HOUR);
+            const REMAINING_MINUTES = Math.floor((DURATION % MILLISECONDS_OF_A_HOUR) / MILLISECONDS_OF_A_MINUTE);
+            const REMAINING_SECONDS = Math.floor((DURATION % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND);
+           
+
+            // Render
+            SPAN_WEEKS.textContent = REMANING_WEEKS;
+            SPAN_DAYS.textContent = REMAINING_DAYS;
+            SPAN_HOURS.textContent = REMAINING_HOURS;
+            SPAN_MINUTES.textContent = REMAINING_MINUTES;
+            SPAN_SECONDS.textContent = REMAINING_SECONDS;
+        }
+
+        //===
+        // INIT
+        //===
+        updateCountdown();
+        // Refresh every second
+        setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
+    });
+    </script>
+  </body>
+</html>
